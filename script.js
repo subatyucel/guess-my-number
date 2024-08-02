@@ -24,7 +24,7 @@ const check = function () {
       scoreCounter--;
       score.textContent = scoreCounter;
     }
-  } else if (scoreCounter === 1) {
+  } else {
     scoreCounter--;
     score.textContent = 0;
     message.textContent = 'You lost 😭';
