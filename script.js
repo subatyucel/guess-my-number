@@ -1,12 +1,14 @@
 'use strict';
 
 let randomNumber = Math.floor(Math.random() * 20) + 1; //the random number that will be guessed
-let scoreCounter = 20; //the score
+let scoreCounter = 20; //the score value
+let highScoreCounter = 0; //high score value
 const guess = document.querySelector('.guess'); //input
 const message = document.querySelector('.message'); //message
 const againBtn = document.querySelector('.again'); //again button
 const checkBtn = document.querySelector('.check'); //check button
 const score = document.querySelector('.score'); //the score text
+const highScore = document.querySelector('.highscore'); //the high score text
 const body = document.querySelector('body'); //body element
 const number = document.querySelector('.number'); //number on the screen "?"
 
@@ -24,6 +26,8 @@ const check = function () {
       message.textContent = '🎉 Correct!';
       body.style.background = '#60b347';
       number.textContent = randomNumber;
+      if (scoreCounter > highScoreCounter) highScoreCounter = scoreCounter; //sets the highscore value
+      highScore.textContent = highScoreCounter; //displays highscore value
     }
     //if user guesses low
     else if (guessed < randomNumber) {
@@ -43,6 +47,7 @@ const check = function () {
     scoreCounter--;
     score.textContent = 0;
     message.textContent = 'You lost 😭';
+    body.style.background = '#D70040';
   }
 };
 
@@ -50,6 +55,7 @@ const check = function () {
 const playAgain = function () {
   message.textContent = 'Start guessing...';
   scoreCounter = 20;
+  score.textContent = scoreCounter;
   body.style.background = '#222';
   guess.value = '';
   number.textContent = '?';
