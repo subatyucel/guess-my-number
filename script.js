@@ -1,14 +1,14 @@
 'use strict';
 
+let randomNumber = Math.floor(Math.random() * 20) + 1; //the random number that will be guessed
+let scoreCounter = 20; //the score
 const guess = document.querySelector('.guess'); //input
 const message = document.querySelector('.message'); //message
+const againBtn = document.querySelector('.again'); //again button
 const checkBtn = document.querySelector('.check'); //check button
-let randomNumber = Math.floor(Math.random() * 20) + 1; //the random number that will be guessed
-const score = document.querySelector('.score'); //the score
-let scoreCounter = 20; //the score's text
+const score = document.querySelector('.score'); //the score text
 const body = document.querySelector('body'); //body element
 const number = document.querySelector('.number'); //number on the screen "?"
-const againBtn = document.querySelector('.again'); //again button
 
 //checks if you guessed correctly
 const check = function () {
