@@ -21,7 +21,7 @@ const check = function () {
     if (!guessed) {
       message.textContent = '🚫 No number!';
     }
-    //if user wins
+    //if answer is correct
     else if (guessed === randomNumber) {
       message.textContent = '🎉 Correct!';
       body.style.background = '#60b347';
@@ -29,15 +29,11 @@ const check = function () {
       if (scoreCounter > highScoreCounter) highScoreCounter = scoreCounter; //sets the highscore value
       highScore.textContent = highScoreCounter; //displays highscore value
     }
-    //if user guesses low
-    else if (guessed < randomNumber) {
-      message.textContent = '📉 Too low!';
-      scoreCounter--;
-      score.textContent = scoreCounter;
-    }
-    //if user guesses high
-    else {
-      message.textContent = '📈 Too high!';
+
+    //if answer is wrong
+    else if (guessed !== randomNumber) {
+      message.textContent =
+        guessed < randomNumber ? '📉 Too low!' : '📈 Too high!';
       scoreCounter--;
       score.textContent = scoreCounter;
     }
